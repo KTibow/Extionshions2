@@ -2,6 +2,8 @@
 // 2014 Shane M. Clements
 
 (function(ext) {
+    
+    var recognized_speech = '';
     ext.alert = function(message) {
         alert(message);
     };
