@@ -57,6 +57,9 @@ new (function() {
             ['w', 'wait and recognize speech', 'recognize_speech'],
             ['r', 'recognized speech', 'recognized_speech']
         ],
+        menus: {
+            voices: _get_voices(),
+        },
     };
 
     ScratchExtensions.register('Speech To Text', descriptor, ext);
