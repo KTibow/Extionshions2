@@ -16,6 +16,21 @@ new (function() {
         };
         recognition.start();
     };
+    
+    function _get_voices() {
+        var ret = [];
+        var voices = speechSynthesis.getVoices();
+        
+        for(var i = 0; i < voices.length; i++ ) {
+            ret.push(voices[i].name);
+            console.log(voices.toString());
+        }
+
+        return ret;
+    }
+
+    ext.set_voice = function() {
+    }
 
     ext.recognized_speech = function () {return recognized_speech;};
 
