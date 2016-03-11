@@ -55,7 +55,9 @@ new (function() {
     var descriptor = {
         blocks: [
             ['w', 'wait and recognize speech', 'recognize_speech'],
-            ['r', 'recognized speech', 'recognized_speech']
+            ['r', 'recognized speech', 'recognized_speech'],
+            ['', 'set voice to %m.voices', 'set_voice', ''],
+            ['w', 'speak %s', 'speak_text', 'Hello!'],
         ],
         menus: {
             voices: _get_voices(),
