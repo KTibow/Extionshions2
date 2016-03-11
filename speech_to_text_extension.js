@@ -28,6 +28,15 @@ new (function() {
 
         return ret;
     }
+    
+    ext.speak_text = function (text, callback) {
+        var u = new SpeechSynthesisUtterance(text.toString());
+        u.onend = function(event) {
+            if (typeof callback=="function") callback();
+        };
+        
+        speechSynthesis.speak(u);
+    };
 
     ext.set_voice = function() {
     }
