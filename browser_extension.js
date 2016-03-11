@@ -42,6 +42,8 @@
     };
 
     ext._getStatus = function() {
+        if (window.webkitSpeechRecognition === undefined) {
+            return {status: 1, msg: 'Your browser does not support speech recognition. Try using Google Chrome.'};
         } else {
             return {status: 2, msg: 'Ready'};
         }
