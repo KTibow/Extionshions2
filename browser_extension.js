@@ -51,7 +51,9 @@
             ['b', 'confirm %s', 'confirm', 'Are you sure?'],
             ['r', 'ask %s', 'ask', 'How are you?'],
             [' ', 'set window title to %s', 'setTitle', 'title'],
-            [' ', 'open tab with %s', 'openTab', 'https://twitter.com/scratchteam']
+            [' ', 'open tab with %s', 'openTab', 'https://twitter.com/scratchteam'],
+            ['w', 'wait and recognize speech', 'recognize_speech'],
+            ['r', 'recognized speech', 'recognized_speech']
         ]
     };
 
