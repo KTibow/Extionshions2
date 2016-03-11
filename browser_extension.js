@@ -21,6 +21,21 @@
     ext.openTab = function(location) {
         window.open(location, '_blank');
     };
+    
+        var recognized_speech = '';
+
+    ext.recognize_speech = function (callback) {
+        var recognition = new webkitSpeechRecognition();
+        recognition.onresult = function(event) {
+            if (event.results.length > 0) {
+                recognized_speech = event.results[0][0].transcript;
+                if (typeof callback=="function") callback();
+            }
+        };
+        recognition.start();
+    };
+
+    ext.recognized_speech = function () {return recognized_speech;};
 
     ext._shutdown = function() {
         console.log('Shutting down...');
