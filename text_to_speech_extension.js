@@ -4,7 +4,7 @@
 new (function() {
     var ext = this;
 
-    /*function _get_voices() {
+    function _get_voices() {
         var ret = [];
         var voices = speechSynthesis.getVoices();
         
@@ -17,7 +17,7 @@ new (function() {
     }
 
     ext.set_voice = function() {
-    };*/
+    };
 
     ext.speak_text = function (text, callback) {
         var u = new SpeechSynthesisUtterance(text.toString());
@@ -39,12 +39,12 @@ new (function() {
 
     var descriptor = {
         blocks: [
-            //['', 'set voice to %m.voices', 'set_voice', ''],
+            ['', 'set voice to %m.voices', 'set_voice', ''],
             ['w', 'speak %s', 'speak_text', 'Hello!'],
         ],
-        /*menus: {
+        menus: {
             voices: _get_voices(),
-        },*/
+        },
     };
 
     ScratchExtensions.register('Text to Speech', descriptor, ext);
