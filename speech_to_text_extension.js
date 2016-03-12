@@ -39,10 +39,14 @@ new (function() {
     };
 
     ext.set_voice = function() {
-    }
+}
 
     ext.recognized_speech = function () {return recognized_speech;};
 
+    ext.Echo = function() {
+        recognize_speech();
+        speak_text(recognized_speech());
+    }
     ext._shutdown = function() {};
 
     ext._getStatus = function() {
@@ -58,6 +62,7 @@ new (function() {
             ['r', 'recognized speech', 'recognized_speech'],
             ['', 'set voice to %m.voices', 'set_voice', ''],
             ['w', 'speak %s', 'speak_text', 'Hello!'],
+            ['w', 'Echo Speech', 'Echo']
         ],
         menus: {
             voices: _get_voices(),
