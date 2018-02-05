@@ -50,7 +50,7 @@ new (function() {
     }
     ext._shutdown = function() {};
     ext.numOfvoices = function() {
-        return _get_voices().length;
+        return SpeechSynthesis.getVoices().length;
     }
 
     ext._getStatus = function() {
