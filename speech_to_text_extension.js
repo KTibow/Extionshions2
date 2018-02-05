@@ -46,7 +46,7 @@ new (function() {
 
     ext.Echo = function() {
         recognize_speech();
-        speak_text(recognized_speech());
+        speak_text(recognized_speech);
     }
     ext._shutdown = function() {};
     ext.numOfvoices = function() {
