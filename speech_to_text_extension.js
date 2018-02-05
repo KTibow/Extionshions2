@@ -38,7 +38,8 @@ new (function() {
         speechSynthesis.speak(u);
     };
 
-    ext.set_voice = function() {
+    ext.set_voice = function(voice) {
+        SpeechSynthesisUtterance.voice = voice;
 }
 
     ext.recognized_speech = function () {return recognized_speech;};
