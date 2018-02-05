@@ -49,6 +49,9 @@ new (function() {
         speak_text(recognized_speech());
     }
     ext._shutdown = function() {};
+    ext.numOfvoices = function() {
+        return _get_voices().length;
+    }
 
     ext._getStatus = function() {
         if (window.webkitSpeechRecognition === undefined) {
@@ -63,7 +66,8 @@ new (function() {
             ['r', 'recognized speech', 'recognized_speech'],
             ['', 'set voice to %m.voices', 'set_voice', ''],
             ['w', 'speak %s', 'speak_text', 'Hello!'],
-            ['w', 'Echo Speech', 'Echo']
+            ['w', 'Echo Speech', 'Echo'],
+            ['r', 'Number of voices', 'numOfVoices']
         ],
         menus: {
             voices: _get_voices(),
