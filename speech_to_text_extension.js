@@ -24,7 +24,7 @@ javascript: new (function () {
         return speaker.getVoices()
     };
     ext.setVoice = function(voice) {
-        speaker.voice = voice;
+        //speaker.voice = voice;
     };
     ext.speak_text = function (text, callback) {
         speaker.onend = function (event) {
@@ -39,6 +39,6 @@ javascript: new (function () {
             return {status: 1, msg: 'Your browser does not support text to speech. Try using Google Chrome or Safari.' }
         } return { status: 2, msg: 'Ready' }
     };
-    var descriptor = { blocks: [['w', 'wait and recognize speech', 'recognize_speech'], ['r', 'recognized speech', 'recognized_speech'], ['b', 'speech to text enabled', 'STTenabled'], ['w', 'speak %s', 'speak_text', 'Hello!'], ['b', 'text to speech enabled', 'TTSenabled'], [' ', 'set voice to ', 'setVoice']], menus:{speechChoices:getVoices()} };
+    var descriptor = { blocks: [['w', 'wait and recognize speech', 'recognize_speech'], ['r', 'recognized speech', 'recognized_speech'], ['b', 'speech to text enabled', 'STTenabled'], ['w', 'speak %s', 'speak_text', 'Hello!'], ['b', 'text to speech enabled', 'TTSenabled'], [' ', 'set voice to ', 'setVoice']]/*, menus:{speechChoices:getVoices()}*/ };
     ScratchExtensions.register('OneExt', descriptor, ext)
 })();
