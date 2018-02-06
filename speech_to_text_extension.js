@@ -24,7 +24,7 @@ javascript: new (function () {
         return speaker.getVoices()
     };
     ext.setVoice = function(voice) {
-        
+        speaker.voice = voice;
     };
     ext.speak_text = function (text, callback) {
         speaker.onend = function (event) {
