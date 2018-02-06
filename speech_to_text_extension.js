@@ -16,11 +16,7 @@ javascript: new (function () {
         return window.webkitSpeechRecognition != undefined
     }; ext._shutdown = function () { };
     ext._getStatus = function () {
-        if (window.webkitSpeechRecognition === undefined) {
-            return {
-                status: 1, msg: 'Your browser does not support speech recognition. Try using Google Chrome.'
-            }
-        } return {
+        return {
             status: 2, msg: 'Ready'
         }
     };
