@@ -1,5 +1,5 @@
 javascript: new (function () {
-    var ext = this; var recognized_speech = '';
+    var ext = this; var recognized_speech = ''; var speaker = window.speechSynthesis;
     ext.recognize_speech = function (callback) {
         var recognition = new webkitSpeechRecognition();
         recognition.onresult = function (event) {
@@ -20,12 +20,17 @@ javascript: new (function () {
             status: 2, msg: 'Ready'
         }
     };
+    ext.getVoices = function() {
+        return speaker.getVoices()
+    };
+    ext.setVoice = function(voice) {
+        
+    };
     ext.speak_text = function (text, callback) {
-        var u = new SpeechSynthesisUtterance(text.toString());
-        u.onend = function (event) {
+        speaker.onend = function (event) {
             if (typeof callback == "function") callback() 
         };
-        speechSynthesis.speak(u)
+        speaker.speak(text.toString());
     };
     ext.TTSenabled = function () {
         return window.SpeechSynthesisUtterance != undefined
@@ -34,6 +39,6 @@ javascript: new (function () {
             return {status: 1, msg: 'Your browser does not support text to speech. Try using Google Chrome or Safari.' }
         } return { status: 2, msg: 'Ready' }
     };
-    var descriptor = { blocks: [['w', 'wait and recognize speech', 'recognize_speech'], ['r', 'recognized speech', 'recognized_speech'], ['b', 'speech to text enabled', 'STTenabled'], ['w', 'speak %s', 'speak_text', 'Hello!'], ['b', 'text to speech enabled', 'TTSenabled']] };
+    var descriptor = { blocks: [['w', 'wait and recognize speech', 'recognize_speech'], ['r', 'recognized speech', 'recognized_speech'], ['b', 'speech to text enabled', 'STTenabled'], ['w', 'speak %s', 'speak_text', 'Hello!'], ['b', 'text to speech enabled', 'TTSenabled'], [' ', 'set voice to %m.speechChoices', 'setVoice']], menus:{speechChoices:getVoices()} };
     ScratchExtensions.register('OneExt', descriptor, ext)
 })();
